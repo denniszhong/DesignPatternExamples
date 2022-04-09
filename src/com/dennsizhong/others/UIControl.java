@@ -1,4 +1,4 @@
-package com.dennsizhong;
+package com.dennsizhong.others;
 
 public abstract class UIControl {
     public void enable() {

@@ -1,4 +1,4 @@
-package com.dennsizhong;
+package com.dennsizhong.others;
 
 public class MailService {
     public void sendEmail(){

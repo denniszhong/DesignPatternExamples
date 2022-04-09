@@ -1,22 +1,33 @@
 package com.dennsizhong;
 
-import com.dennsizhong.factorymethod.Blog;
+import com.dennsizhong.abstractfactory.CardType;
+import com.dennsizhong.abstractfactory.CreditCard;
+import com.dennsizhong.abstractfactory.CreditCardFactory;
 import com.dennsizhong.factorymethod.Website;
 import com.dennsizhong.factorymethod.WebsiteFactory;
 import com.dennsizhong.factorymethod.WebsiteType;
-import com.dennsizhong.memento.Editor;
-import com.dennsizhong.memento.History;
-import com.dennsizhong.state.BrushTool;
-import com.dennsizhong.state.Canvas;
-import org.w3c.dom.Text;
+import com.dennsizhong.others.TaxCalculator;
+import com.dennsizhong.others.TaxCalculator2019;
+import com.dennsizhong.others.UIControl;
 
 public class Main {
     public static void main(String[] args) {
+        // Abstract Factory
+        CreditCardFactory cardFactory = CreditCardFactory.getCreditCardFactory(780);
+        CreditCard card = cardFactory.getCreditCard(CardType.GOLD);
+        System.out.println(card.getClass());
+
+        cardFactory = CreditCardFactory.getCreditCardFactory(600);
+        CreditCard card2 = cardFactory.getCreditCard(CardType.PLATINUM);
+        System.out.println(card2);
+
         // Factory method
+        /*
         Website site = WebsiteFactory.getWebsite(WebsiteType.BLOG);
         System.out.println(site.getPages());
         site = WebsiteFactory.getWebsite(WebsiteType.SHOP);
         System.out.println(site.getPages());
+        */
 
         // State Pattern
         /*

@@ -1,4 +1,4 @@
-package com.dennsizhong;
+package com.dennsizhong.others;
 
 public class TaxCalculator2020 implements TaxCalculator{
     @Override
