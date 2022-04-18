@@ -6,13 +6,28 @@ import com.dennsizhong.abstractfactory.CreditCardFactory;
 import com.dennsizhong.factorymethod.Website;
 import com.dennsizhong.factorymethod.WebsiteFactory;
 import com.dennsizhong.factorymethod.WebsiteType;
+import com.dennsizhong.iterator.BrowseHistory;
 import com.dennsizhong.others.TaxCalculator;
 import com.dennsizhong.others.TaxCalculator2019;
 import com.dennsizhong.others.UIControl;
 
 public class Main {
     public static void main(String[] args) {
+        // Iterator
+        var history = new BrowseHistory();
+        history.push("a");
+        history.push("b");
+        history.push("c");
+
+        var iterator = history.getIterator();
+        while (iterator.hasNext()) {
+            var url = iterator.current();
+            System.out.println(url);
+            iterator.next();
+        }
+
         // Abstract Factory
+        /*
         CreditCardFactory cardFactory = CreditCardFactory.getCreditCardFactory(780);
         CreditCard card = cardFactory.getCreditCard(CardType.GOLD);
         System.out.println(card.getClass());
@@ -20,6 +35,7 @@ public class Main {
         cardFactory = CreditCardFactory.getCreditCardFactory(600);
         CreditCard card2 = cardFactory.getCreditCard(CardType.PLATINUM);
         System.out.println(card2);
+        */
 
         // Factory method
         /*
