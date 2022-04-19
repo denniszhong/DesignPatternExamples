@@ -10,10 +10,18 @@ import com.dennsizhong.iterator.BrowseHistory;
 import com.dennsizhong.others.TaxCalculator;
 import com.dennsizhong.others.TaxCalculator2019;
 import com.dennsizhong.others.UIControl;
+import com.dennsizhong.stragety.*;
 
 public class Main {
     public static void main(String[] args) {
+        // Strategy Pattern
+        var imageStorage = new ImageStorage(new JpegCompressor(), new HighContractFilter());
+        imageStorage.store("a.jpg");
+        var imageStorage2 = new ImageStorage(new PngCompressor(), new BlackAndWriteFilter());
+        imageStorage2.store("b.png");
+
         // Iterator
+        /*
         var history = new BrowseHistory();
         history.push("a");
         history.push("b");
@@ -25,6 +33,7 @@ public class Main {
             System.out.println(url);
             iterator.next();
         }
+        */
 
         // Abstract Factory
         /*
