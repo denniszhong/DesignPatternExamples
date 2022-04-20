@@ -3,6 +3,13 @@ package com.dennsizhong;
 import com.dennsizhong.abstractfactory.CardType;
 import com.dennsizhong.abstractfactory.CreditCard;
 import com.dennsizhong.abstractfactory.CreditCardFactory;
+import com.dennsizhong.command.*;
+import com.dennsizhong.command.editor.BoldCommand;
+import com.dennsizhong.command.editor.History;
+import com.dennsizhong.command.editor.HtmlDocument;
+import com.dennsizhong.command.editor.UndoCommand;
+import com.dennsizhong.command.fx.Button;
+import com.dennsizhong.command.fx.Command;
 import com.dennsizhong.factorymethod.Website;
 import com.dennsizhong.factorymethod.WebsiteFactory;
 import com.dennsizhong.factorymethod.WebsiteType;
@@ -16,11 +23,43 @@ import com.dennsizhong.template.TransferMoneyTask;
 
 public class Main {
     public static void main(String[] args) {
+        // Command Pattern - Undoable command
+        /*
+        var document = new HtmlDocument();
+        document.setContent("Hello design pattern!");
+        var history = new History();
+
+        var boldCommand = new BoldCommand(document, history);
+        boldCommand.execute();
+        System.out.println(document.getContent());
+
+        var undoCommand = new UndoCommand(history);
+        undoCommand.execute();
+        System.out.println(document.getContent());
+        */
+
+        // Command Pattern
+        /*
+        // Sample code
+        var customerService = new CustomerService();
+        var command = new AddCustomerCommand(customerService);
+        var button = new Button(command);
+        button.click();
+
+        // Record commands and reply
+        var compositCommand = new CompositCommand();
+        compositCommand.add(new ResizeCommand());
+        compositCommand.add(new BlackAndWhiteCommand());
+        compositCommand.execute();
+        */
+
         // Template Pattern
+        /*
         var task = new TransferMoneyTask(new AuditTrail());
         task.execute();
         var task2 = new TransferMoneyTask();
         task2.execute();
+        */
 
         // Strategy Pattern
         /*
