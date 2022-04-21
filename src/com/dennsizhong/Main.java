@@ -14,6 +14,7 @@ import com.dennsizhong.factorymethod.Website;
 import com.dennsizhong.factorymethod.WebsiteFactory;
 import com.dennsizhong.factorymethod.WebsiteType;
 import com.dennsizhong.iterator.BrowseHistory;
+import com.dennsizhong.mediator.ArticlesDialogBox;
 import com.dennsizhong.observer.Chart;
 import com.dennsizhong.observer.DataSource;
 import com.dennsizhong.observer.Spreadsheet;
@@ -29,8 +30,12 @@ import com.dennsizhong.template.TransferMoneyTask;
 
 public class Main {
     public static void main(String[] args) {
+        // Mediator Pattern
+        var dialog = new ArticlesDialogBox();
+        dialog.simulateUserInteraction();
+
         // ObserverPull Pattern
-        ///*
+        /*
         // Push mode
         var dataSource = new DataSource();
         var spreadsheet = new Spreadsheet();
@@ -46,7 +51,7 @@ public class Main {
         dataSourcePull.addObserver(spreadsheetPull);
         dataSourcePull.addObserver(chartPull);
         dataSourcePull.setValue(6);
-        //*/
+        */
 
         // Command Pattern - Undoable command
         /*
