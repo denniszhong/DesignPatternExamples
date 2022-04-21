@@ -14,6 +14,12 @@ import com.dennsizhong.factorymethod.Website;
 import com.dennsizhong.factorymethod.WebsiteFactory;
 import com.dennsizhong.factorymethod.WebsiteType;
 import com.dennsizhong.iterator.BrowseHistory;
+import com.dennsizhong.observer.Chart;
+import com.dennsizhong.observer.DataSource;
+import com.dennsizhong.observer.Spreadsheet;
+import com.dennsizhong.observer.pull.ChartPull;
+import com.dennsizhong.observer.pull.DataSourcePull;
+import com.dennsizhong.observer.pull.SpreadsheetPull;
 import com.dennsizhong.others.TaxCalculator;
 import com.dennsizhong.others.TaxCalculator2019;
 import com.dennsizhong.others.UIControl;
@@ -23,6 +29,25 @@ import com.dennsizhong.template.TransferMoneyTask;
 
 public class Main {
     public static void main(String[] args) {
+        // ObserverPull Pattern
+        ///*
+        // Push mode
+        var dataSource = new DataSource();
+        var spreadsheet = new Spreadsheet();
+        var chart = new Chart();
+        dataSource.addObserver(spreadsheet);
+        dataSource.addObserver(chart);
+        dataSource.setValue(5);
+
+        // Pull mode
+        var dataSourcePull = new DataSourcePull();
+        var spreadsheetPull = new SpreadsheetPull(dataSourcePull);
+        var chartPull = new ChartPull(dataSourcePull);
+        dataSourcePull.addObserver(spreadsheetPull);
+        dataSourcePull.addObserver(chartPull);
+        dataSourcePull.setValue(6);
+        //*/
+
         // Command Pattern - Undoable command
         /*
         var document = new HtmlDocument();
