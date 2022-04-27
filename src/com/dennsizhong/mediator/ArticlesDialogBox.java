@@ -15,14 +15,22 @@ public class ArticlesDialogBox extends DialogBox {
     public void changed(UIControl control) {
         // Implement all the interaction among UI controls within this dialog
         if (control == articlesListBox) {
-            titleTextBox.setContent(articlesListBox.getSelection());
-            saveButton.setEnabled(true);
+            articleSelected();
         } else if (control == titleTextBox) {
-            var content = titleTextBox.getContent();
-            var isEmpty = content == null || content.isEmpty();
-            saveButton.setEnabled(!isEmpty);
+            titleUpdated();
         } else if (control == saveButton) {
             // save to db
         }
+    }
+
+    private void articleSelected() {
+        titleTextBox.setContent(articlesListBox.getSelection());
+        saveButton.setEnabled(true);
+    }
+
+    private void titleUpdated() {
+        var content = titleTextBox.getContent();
+        var isEmpty = content == null || content.isEmpty();
+        saveButton.setEnabled(!isEmpty);
     }
 }

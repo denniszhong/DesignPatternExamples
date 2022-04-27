@@ -1,38 +1,24 @@
 package com.dennsizhong;
 
-import com.dennsizhong.abstractfactory.CardType;
-import com.dennsizhong.abstractfactory.CreditCard;
-import com.dennsizhong.abstractfactory.CreditCardFactory;
-import com.dennsizhong.command.*;
-import com.dennsizhong.command.editor.BoldCommand;
-import com.dennsizhong.command.editor.History;
-import com.dennsizhong.command.editor.HtmlDocument;
-import com.dennsizhong.command.editor.UndoCommand;
-import com.dennsizhong.command.fx.Button;
-import com.dennsizhong.command.fx.Command;
-import com.dennsizhong.factorymethod.Website;
-import com.dennsizhong.factorymethod.WebsiteFactory;
-import com.dennsizhong.factorymethod.WebsiteType;
-import com.dennsizhong.iterator.BrowseHistory;
-import com.dennsizhong.mediator.ArticlesDialogBox;
-import com.dennsizhong.observer.Chart;
-import com.dennsizhong.observer.DataSource;
-import com.dennsizhong.observer.Spreadsheet;
-import com.dennsizhong.observer.pull.ChartPull;
-import com.dennsizhong.observer.pull.DataSourcePull;
-import com.dennsizhong.observer.pull.SpreadsheetPull;
+import com.dennsizhong.mediator.event.ArticleEditorDialogBox;
 import com.dennsizhong.others.TaxCalculator;
 import com.dennsizhong.others.TaxCalculator2019;
 import com.dennsizhong.others.UIControl;
-import com.dennsizhong.stragety.*;
-import com.dennsizhong.template.AuditTrail;
-import com.dennsizhong.template.TransferMoneyTask;
 
 public class Main {
     public static void main(String[] args) {
+
+        // Mediator Pattern - with observer pattern
+        /*
+        var dialog = new ArticleEditorDialogBox();
+        dialog.simulateUserInteraction();
+         */
+
         // Mediator Pattern
+        /*
         var dialog = new ArticlesDialogBox();
         dialog.simulateUserInteraction();
+         */
 
         // ObserverPull Pattern
         /*
