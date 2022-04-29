@@ -1,5 +1,6 @@
 package com.dennsizhong;
 
+import com.dennsizhong.chainOfResponsibility.*;
 import com.dennsizhong.mediator.event.ArticleEditorDialogBox;
 import com.dennsizhong.others.TaxCalculator;
 import com.dennsizhong.others.TaxCalculator2019;
@@ -7,7 +8,18 @@ import com.dennsizhong.others.UIControl;
 
 public class Main {
     public static void main(String[] args) {
-
+        // Chain of responsibility pattern
+        /*
+        // We want to handle in this order:
+        // Authenticate -> log -> compress
+        var compressor = new Compressor(null);
+        var logger = new Logger(compressor);
+        var auth = new Authenticator(logger);
+        var webServer =  new WebServer(auth);
+        // test: auth success, and will see logging and compressing
+        webServer.process(new HttpRequest("Admin", "123"));
+        */
+        
         // Mediator Pattern - with observer pattern
         /*
         var dialog = new ArticleEditorDialogBox();
