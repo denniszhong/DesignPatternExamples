@@ -5,9 +5,27 @@ import com.dennsizhong.mediator.event.ArticleEditorDialogBox;
 import com.dennsizhong.others.TaxCalculator;
 import com.dennsizhong.others.TaxCalculator2019;
 import com.dennsizhong.others.UIControl;
+import com.dennsizhong.visitor.AnchorNode;
+import com.dennsizhong.visitor.HeadingNode;
+import com.dennsizhong.visitor.HighlightOperation;
+import com.dennsizhong.visitor.HtmlDocument;
 
 public class Main {
     public static void main(String[] args) {
+        // Visitor pattern
+        /*
+        var doc = new HtmlDocument();
+        doc.add(new HeadingNode());
+        doc.add(new AnchorNode());
+        
+        // Document execute an operation:
+        // By using visitor pattern, every time when we add a new operation,
+        //     we don't change anything for the new operation in client side,
+        //     we only create a new class for new operation and implement the operation
+        //     for all nodes in one place.
+        doc.execute(new HighlightOperation());
+        */
+
         // Chain of responsibility pattern
         /*
         // We want to handle in this order:
@@ -19,7 +37,7 @@ public class Main {
         // test: auth success, and will see logging and compressing
         webServer.process(new HttpRequest("Admin", "123"));
         */
-        
+
         // Mediator Pattern - with observer pattern
         /*
         var dialog = new ArticleEditorDialogBox();
