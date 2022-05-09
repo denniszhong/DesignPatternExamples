@@ -1,23 +1,36 @@
 package com.dennsizhong;
 
-import com.dennsizhong.chainOfResponsibility.*;
-import com.dennsizhong.mediator.event.ArticleEditorDialogBox;
+import com.dennsizhong.composite.Group;
+import com.dennsizhong.composite.Shape;
 import com.dennsizhong.others.TaxCalculator;
 import com.dennsizhong.others.TaxCalculator2019;
 import com.dennsizhong.others.UIControl;
-import com.dennsizhong.visitor.AnchorNode;
-import com.dennsizhong.visitor.HeadingNode;
-import com.dennsizhong.visitor.HighlightOperation;
-import com.dennsizhong.visitor.HtmlDocument;
 
 public class Main {
     public static void main(String[] args) {
+        // Composite pattern
+        /*
+        var shape1 = new Shape("shape1");
+        var shape2 = new Shape("shape2");
+        var group1 =  new Group("group1");
+        group1.add(shape1);
+        group1.add(shape2);
+
+        var shape3 = new Shape("shape3");
+        var group2 =  new Group("group2");
+        group2.add(shape3);
+        group2.add(group1);
+
+        group2.render();
+        group2.move();
+        */
+
         // Visitor pattern
         /*
         var doc = new HtmlDocument();
         doc.add(new HeadingNode());
         doc.add(new AnchorNode());
-        
+
         // Document execute an operation:
         // By using visitor pattern, every time when we add a new operation,
         //     we don't change anything for the new operation in client side,
