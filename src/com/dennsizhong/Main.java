@@ -1,5 +1,9 @@
 package com.dennsizhong;
 
+import com.dennsizhong.adapter.CaramelFilter;
+import com.dennsizhong.adapter.Image;
+import com.dennsizhong.adapter.ImageView;
+import com.dennsizhong.adapter.filterLib.Caramel;
 import com.dennsizhong.composite.Group;
 import com.dennsizhong.composite.Shape;
 import com.dennsizhong.others.TaxCalculator;
@@ -8,6 +12,11 @@ import com.dennsizhong.others.UIControl;
 
 public class Main {
     public static void main(String[] args) {
+        // Adapter pattern
+        var image = new Image();
+        var imageView = new ImageView(image);
+        imageView.apply(new CaramelFilter(new Caramel()));
+
         // Composite pattern
         /*
         var shape1 = new Shape("shape1");
