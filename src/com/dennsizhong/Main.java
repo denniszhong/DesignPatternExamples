@@ -6,16 +6,31 @@ import com.dennsizhong.adapter.ImageView;
 import com.dennsizhong.adapter.filterLib.Caramel;
 import com.dennsizhong.composite.Group;
 import com.dennsizhong.composite.Shape;
+import com.dennsizhong.decorator.CloudStream;
+import com.dennsizhong.decorator.EncryptedCloudStream;
+import com.dennsizhong.decorator.Stream;
 import com.dennsizhong.others.TaxCalculator;
 import com.dennsizhong.others.TaxCalculator2019;
 import com.dennsizhong.others.UIControl;
 
 public class Main {
     public static void main(String[] args) {
-        // Adapter pattern
+        // Decorator Pattern
+        /*
+        // 1. CloudStream
+        Stream stream = new CloudStream();
+        storeCreditCard(stream);
+        // 2. Encrypted CloudStream
+        Stream encryptedStream = new EncryptedCloudStream(stream);
+        storeCreditCard(encryptedStream);
+        */
+
+        // Adapter Pattern
+        /*
         var image = new Image();
         var imageView = new ImageView(image);
         imageView.apply(new CaramelFilter(new Caramel()));
+        */
 
         // Composite pattern
         /*
@@ -214,6 +229,11 @@ public class Main {
 
         // Polymorphism
         //drawUIControl(new CheckBox());
+    }
+
+    // Helper method for Decorator Pattern
+    public static void storeCreditCard(Stream stream) {
+        stream.write("1234-1234-1234-1234");
     }
 
     public static void drawUIControl(UIControl control) {
